@@ -23,10 +23,18 @@ jobs:
         uses: android-actions/setup-android@v3
 
       - name: Install Android SDK packages
-        run: sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
+        run: |
+          sdkmanager "platform-tools" "platforms;android-35" "build-tools;35.0.0"
 
-      - name: Make Gradle executable
+      - name: Make Gradle wrapper executable
         run: chmod +x ./gradlew
+
+      - name: Download Gradle
+        run: ./gradlew --version || true
+
+      - name: Fix downloaded Gradle permissions
+        run: |
+          chmod +x /home/runner/.gradle/wrapper/dists/parth-wrapper/gradle-8.10.2/bin/gradle
 
       - name: Build debug APK
         run: ./gradlew assembleDebug --no-daemon
