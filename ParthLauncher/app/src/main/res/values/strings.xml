@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">Parth Launcher</string>
-    <string name="search_apps">Search apps</string>
-    <string name="applications">APPLICATIONS</string>
-    <string name="no_apps">No apps found, Parth</string>
-    <string name="settings">Launcher settings</string>
-</resources>
